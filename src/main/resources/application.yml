@@ -1,0 +1,30 @@
+spring:
+  h2:
+    console:
+      enabled: true
+      path: /h2
+  datasource:
+    url: jdbc:h2:file:./data/hide-message-api
+    username: ${DB_USERNAME:sa}
+    password: ${DB_PASSWORD:password}
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: ${DDL_AUTO:update}
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 200MB
+      max-request-size: 200MB
+
+server:
+  port: ${SERVER_PORT:8000}
+
+app:
+  title: ${APP_TITLE:Hide Message Api}
+  description: Hide Message Api using steganography.
+  jwt:
+    secret: ${JWT_SECRET:6Oc7YFvJp6XkgoY3xMeOGZFqw3mtpY1fTvI9LB4TlZPLifnR+xZDZ0J7mfMlCHcrE1mmw47tkcoJvai6MmVFmw==}
+    access-expiry-minutes: ${JWT_ACCESS_EXPIRY_IN_MINUTES:45000}
+    refresh-expiry-years: ${JWT_REFRESH_EXPIRY_IN_YEARS:1}
